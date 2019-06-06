@@ -1,49 +1,12 @@
 {
-	"technology": [
-		"https://news.ycombinator.com/rss",
-		"https://news.google.com/news/rss/headlines/section/topic/TECHNOLOGY?ned=in&gl=IN&hl=en-IN",
-		"https://gadgets.ndtv.com/rss/feeds"
-	],
-
-	"top": [
-		"https://timesofindia.indiatimes.com/rssfeedstopstories.cms",
-		"https://news.google.com/news/rss",
-		"https://feeds.feedburner.com/ndtvnews-top-stories",
-		"https://www.hindustantimes.com/rss/topnews/rssfeed.xml",
-		"https://economictimes.indiatimes.com/news/rssfeeds/1715249553.cms"
-	],
-
-	"india": [
-		"https://timesofindia.indiatimes.com/rssfeeds/-2128936835.cms",
-		"https://www.hindustantimes.com/rss/india/rssfeed.xml",
-		"https://www.thehindu.com/news/national/feeder/default.rss"
-	],
-
-	"world": [
-		"https://timesofindia.indiatimes.com/rssfeeds/296589292.cms",
-		"https://www.reddit.com/r/worldnews/.rss",
-		"https://feeds.feedburner.com/ndtvnews-world-news",
-		"https://www.hindustantimes.com/rss/world/rssfeed.xml",
-		"http://rss.cnn.com/rss/edition.rss",
-		"https://www.thehindu.com/news/international/feeder/default.rss"
-	],
-
-	"business": [
-		"https://timesofindia.indiatimes.com/rssfeeds/1898055.cms",
-		"https://news.google.com/news/rss/headlines/section/topic/BUSINESS?ned=in&gl=IN&hl=en-IN",
-		"https://economictimes.indiatimes.com/rssfeedsdefault.cms"
-	],
-
-	"sports": [
-		"https://timesofindia.indiatimes.com/rssfeeds/4719148.cms",
-		"https://www.hindustantimes.com/rss/sports/rssfeed.xml"
-	],
-
-	"cricket": [
-		"https://www.hindustantimes.com/rss/cricket/rssfeed.xml"
-	],
-
-	"science": [
-		"https://news.google.com/news/rss/headlines/section/topic/SCIENCE?ned=in&gl=IN&hl=en-IN"
+	"categories": [
+		"technology",
+		"top",
+		"india",
+		"world",
+		"business",
+		"sports",
+		"cricket",
+		"science"
 	]
 }
