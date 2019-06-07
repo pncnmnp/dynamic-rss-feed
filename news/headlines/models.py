@@ -2,7 +2,7 @@ from django.db import models
 
 class Title(models.Model):
 	title_text = models.CharField(max_length=300)
-	pub_date = models.CharField(max_length=200)
+	pub_date = models.DateTimeField()
 	news_url = models.URLField(max_length=200)
 	description = models.TextField()
 	news_category = models.CharField(max_length=100)
@@ -14,3 +14,9 @@ class Title(models.Model):
 					self.description, 
 					self.news_category]
 				)
+
+class DB_Dates(models.Model):
+	db_updated_date = models.CharField(max_length=200)
+
+	def __repr__(self):
+		return self.db_updated_date

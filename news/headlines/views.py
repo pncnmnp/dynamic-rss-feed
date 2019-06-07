@@ -2,14 +2,19 @@ import pickle
 from django.shortcuts import render
 from json import load
 from . import fetch_news
-from .models import Title
+from .models import Title, DB_Dates
 from django.http import HttpResponse
 from datetime import datetime, timedelta
 from os import path
+from dateutil import parser
 
 def store(request):
 	past_time = datetime.now() - timedelta(hours=1)
+	past_day = datetime.now() - timedelta(days=1)
 	curr_timestamp = datetime.fromtimestamp(path.getmtime('./db.sqlite3'))
+
+	if past_day > curr_timestamp:
+		Title.objects.all().delete()
 
 	if past_time > curr_timestamp:
 		news_obj = fetch_news.Fetch_News()
@@ -26,9 +31,10 @@ def store(request):
 			index = 0
 			while(True):
 				try:
+					datetime_obj = parser.parse(news_content[category][index]['date'])
 					news_instance, created = Title.objects.get_or_create(
 						title_text=news_content[category][index]['title'],
-						pub_date=news_content[category][index]['date'],
+						pub_date=datetime_obj,
 						news_url=news_content[category][index]['links'],
 						description=news_content[category][index]['desc'],
 						news_category=category
@@ -42,9 +48,9 @@ def store(request):
 	return HttpResponse("here news will be fetched")
 
 def fetch(request):
-	tech_list = Title.objects.filter(news_category__startswith='technology')
-	top_list = Title.objects.filter(news_category__startswith='top')
-	world_list = Title.objects.filter(news_category__startswith='world')
+	tech_list = Title.objects.filter(news_category__startswith='technology').order_by('-pub_date')
+	top_list = Title.objects.filter(news_category__startswith='top').order_by('-pub_date')
+	world_list = Title.objects.filter(news_category__startswith='world').order_by('-pub_date')
 	context = {
 		'tech_list': tech_list,
 		'top_list': top_list,
