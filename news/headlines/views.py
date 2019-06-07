@@ -8,7 +8,7 @@ from datetime import datetime, timedelta
 from os import path
 
 def store(request):
-	past_time = datetime.now() - timedelta(hours=2)
+	past_time = datetime.now() - timedelta(hours=1)
 	curr_timestamp = datetime.fromtimestamp(path.getmtime('./db.sqlite3'))
 
 	if past_time > curr_timestamp:
@@ -26,14 +26,15 @@ def store(request):
 			index = 0
 			while(True):
 				try:
-					news_instance = Title.objects.create(
+					news_instance, created = Title.objects.get_or_create(
 						title_text=news_content[category][index]['title'],
 						pub_date=news_content[category][index]['date'],
 						news_url=news_content[category][index]['links'],
 						description=news_content[category][index]['desc'],
 						news_category=category
 					)
-					news_instance.save()
+					if created == True:
+						news_instance.save()
 					index += 1
 				except:
 					break
@@ -41,4 +42,13 @@ def store(request):
 	return HttpResponse("here news will be fetched")
 
 def fetch(request):
-	return HttpResponse("here news will be displayed")
+	tech_list = Title.objects.filter(news_category__startswith='technology')
+	top_list = Title.objects.filter(news_category__startswith='top')
+	world_list = Title.objects.filter(news_category__startswith='world')
+	context = {
+		'tech_list': tech_list,
+		'top_list': top_list,
+		'world_list': world_list
+	}
+
+	return render(request, 'headlines/index.html', context)

@@ -7,5 +7,10 @@ class Title(models.Model):
 	description = models.TextField()
 	news_category = models.CharField(max_length=100)
 
-	def __str__(self):
-		return self.title_text
+	def __repr__(self):
+		return str([self.title_text, 
+					self.pub_date, 
+					self.news_url, 
+					self.description, 
+					self.news_category]
+				)
