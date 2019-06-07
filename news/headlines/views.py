@@ -2,7 +2,7 @@ import pickle
 from django.shortcuts import render
 from json import load
 from . import fetch_news
-from .models import Title, DB_Dates
+from .models import Title
 from django.http import HttpResponse
 from datetime import datetime, timedelta
 from os import path

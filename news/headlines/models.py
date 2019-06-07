@@ -15,8 +15,3 @@ class Title(models.Model):
 					self.news_category]
 				)
 
-class DB_Dates(models.Model):
-	db_updated_date = models.CharField(max_length=200)
-
-	def __repr__(self):
-		return self.db_updated_date
