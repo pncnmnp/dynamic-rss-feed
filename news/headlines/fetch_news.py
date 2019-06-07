@@ -4,10 +4,10 @@ from json import load
 from datetime import datetime
 from os import path
 
-class fetch_news:
+class Fetch_News:
 	def __init__(self):
 		self.news_content = {}
-		self.directory = './datasets/past_news/'
+		self.directory = './headlines/datasets/past_news/'
 		self.file = str()
 
 	def get_filename(self):
@@ -36,7 +36,7 @@ class fetch_news:
 			return True
 
 	def scrape(self):
-		url_link_path = './datasets/news_urls.json'
+		url_link_path = './headlines/datasets/news_urls.json'
 		urls = load(open(url_link_path))
 
 		for category in urls:
@@ -67,6 +67,12 @@ class fetch_news:
 		pickle.dump(self.news_content, dbfile)
 		dbfile.close()
 
+	def get_pickle(self):
+		dbfile = open(self.directory + self.file, 'rb')
+		news = pickle.load(dbfile)
+		dbfile.close()
+		return news
+
 if __name__ == '__main__':
-	obj = fetch_news()
-	obj.scrape()
+	obj = Fetch_News()
+	obj.check_news()

@@ -2,7 +2,8 @@
 	"technology": [
 		"https://news.ycombinator.com/rss",
 		"https://news.google.com/news/rss/headlines/section/topic/TECHNOLOGY?ned=in&gl=IN&hl=en-IN",
-		"https://gadgets.ndtv.com/rss/feeds"
+		"https://gadgets.ndtv.com/rss/feeds",
+		"http://feeds.bbci.co.uk/news/technology/rss.xml"
 	],
 
 	"top": [
@@ -10,7 +11,8 @@
 		"https://news.google.com/news/rss",
 		"https://feeds.feedburner.com/ndtvnews-top-stories",
 		"https://www.hindustantimes.com/rss/topnews/rssfeed.xml",
-		"https://economictimes.indiatimes.com/news/rssfeeds/1715249553.cms"
+		"https://economictimes.indiatimes.com/news/rssfeeds/1715249553.cms",
+		"http://feeds.bbci.co.uk/news/rss.xml"
 	],
 
 	"india": [
@@ -25,7 +27,8 @@
 		"https://feeds.feedburner.com/ndtvnews-world-news",
 		"https://www.hindustantimes.com/rss/world/rssfeed.xml",
 		"http://rss.cnn.com/rss/edition.rss",
-		"https://www.thehindu.com/news/international/feeder/default.rss"
+		"https://www.thehindu.com/news/international/feeder/default.rss",
+		"http://feeds.bbci.co.uk/news/world/rss.xml"
 	],
 
 	"business": [
@@ -44,6 +47,7 @@
 	],
 
 	"science": [
-		"https://news.google.com/news/rss/headlines/section/topic/SCIENCE?ned=in&gl=IN&hl=en-IN"
+		"https://news.google.com/news/rss/headlines/section/topic/SCIENCE?ned=in&gl=IN&hl=en-IN",
+		"http://feeds.bbci.co.uk/news/science_and_environment/rss.xml"
 	]
 }
