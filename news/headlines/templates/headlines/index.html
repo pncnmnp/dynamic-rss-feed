@@ -7,9 +7,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Headlines</title>
 	{% load static %}
-	<link rel="stylesheet" type="text/css" href="{% static 'headlines/common_design.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'headlines/css/common_design.css' %}">
 	<style type="text/css">
-		body {background-image: url("{% static 'headlines/layout_1.png' %}")}
+		body {background-image: url("{% static 'headlines/imgs/layout_1.png' %}")}
 	</style>
 
 </head>
@@ -20,7 +20,7 @@
 		<div id="date">{{ date }}</div>
 		<span id="time"></span>
 	</div>
-	<script type="text/javascript" src="{% static 'headlines/time.js' %}"></script>
+	<script type="text/javascript" src="{% static 'headlines/js/time.js' %}"></script>
 	{% if top_list %}
 		<h3>Top</h3>
 		<div class="news">

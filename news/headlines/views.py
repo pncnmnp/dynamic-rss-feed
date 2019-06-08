@@ -48,7 +48,8 @@ def store(request):
 				except:
 					break
 
-	return HttpResponse("here news will be fetched")
+	context = {}
+	return render(request, 'headlines/update_and_redirect.html', context)
 
 def fetch(request):
 	context = dict()
