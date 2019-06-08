@@ -1,0 +1,13 @@
+h3 {
+	text-align: center;
+}
+
+a:hover {
+	color: tomato;
+}
+
+.news_date {
+	float: right;
+	color: #373D3F;
+	font-size: 12px;
+}

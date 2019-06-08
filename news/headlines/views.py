@@ -9,7 +9,7 @@ from os import path
 from dateutil import parser
 
 def store(request):
-	past_time = datetime.now() - timedelta(hours=1)
+	past_time = datetime.now() - timedelta(seconds=1)
 	past_day = datetime.now() - timedelta(days=1)
 	curr_timestamp = datetime.fromtimestamp(path.getmtime('./db.sqlite3'))
 
@@ -21,8 +21,11 @@ def store(request):
 		news_content = dict()
 		if news_obj.check_news() == False:
 			news_content = news_obj.get_pickle()
+			news_obj.top_news(news_content)
+			news_content = news_obj.top_stories
 		else:
-			news_content = news_obj.news_content
+			news_obj.top_news(news_obj.news_content)
+			news_content = news_obj.top_stories
 
 		category_path = './headlines/datasets/categories.json'
 		categories = load(open(category_path))
@@ -48,9 +51,9 @@ def store(request):
 	return HttpResponse("here news will be fetched")
 
 def fetch(request):
-	tech_list = Title.objects.filter(news_category__startswith='technology').order_by('-pub_date')
-	top_list = Title.objects.filter(news_category__startswith='top').order_by('-pub_date')
-	world_list = Title.objects.filter(news_category__startswith='world').order_by('-pub_date')
+	tech_list = Title.objects.filter(news_category__startswith='technology')
+	top_list = Title.objects.filter(news_category__startswith='top')
+	world_list = Title.objects.filter(news_category__startswith='world')
 	context = {
 		'tech_list': tech_list,
 		'top_list': top_list,

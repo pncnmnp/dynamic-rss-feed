@@ -6,6 +6,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Headlines</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'headlines/common_design.css' %}">
 
 </head>
 
@@ -14,38 +16,48 @@
 	{% if tech_list %}
 		<ul>
 			{% for news in tech_list %}
+				{% if forloop.counter < 10 %}
 				<li>
 					{{ news.title_text }} : <a href="{{ news.news_url }}">more</a>
+					<div class="news_date">
+						{{ news.pub_date }}
+					</div>
 				</li>
-				<b>Date: </b>{{ news.pub_date }}
+				{% endif %}
 			{% endfor %}
 		</ul>
 	{% else %}
 		<p>No news</p>
 	{% endif %}
-
 	<h3>Top News</h3>
 	{% if top_list %}
 		<ul>
 			{% for news in top_list %}
+				{% if forloop.counter < 10 %}
 				<li>
 					{{ news.title_text }} : <a href="{{ news.news_url }}">more</a>
+					<div class="news_date">
+						{{ news.pub_date }}
+					</div>
 				</li>
-				<b>Date: </b>{{ news.pub_date }}
+				{% endif %}
 			{% endfor %}
 		</ul>
 	{% else %}
 		<p>No news</p>
 	{% endif %}
-
 	<h3>World News</h3>
 	{% if world_list %}
 		<ul>
 			{% for news in world_list %}
+				{% if forloop.counter < 10 %}
 				<li>
 					{{ news.title_text }} : <a href="{{ news.news_url }}">more</a>
+					<div class="news_date">
+						{{ news.pub_date }}
+					</div>
 				</li>
-				<b>Date: </b>{{ news.pub_date }}
+				{% endif %}
 			{% endfor %}
 		</ul>
 	{% else %}

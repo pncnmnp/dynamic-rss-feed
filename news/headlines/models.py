@@ -14,4 +14,3 @@ class Title(models.Model):
 					self.description, 
 					self.news_category]
 				)
-
