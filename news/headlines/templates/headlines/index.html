@@ -8,60 +8,79 @@
 	<title>Headlines</title>
 	{% load static %}
 	<link rel="stylesheet" type="text/css" href="{% static 'headlines/common_design.css' %}">
+	<style type="text/css">
+		body {background-image: url("{% static 'headlines/layout_1.png' %}")}
+	</style>
 
 </head>
 
 <body>
-	<h3>Tech News</h3>
-	{% if tech_list %}
-		<ul>
-			{% for news in tech_list %}
-				{% if forloop.counter < 10 %}
-				<li>
-					{{ news.title_text }} : <a href="{{ news.news_url }}">more</a>
-					<div class="news_date">
-						{{ news.pub_date }}
-					</div>
-				</li>
-				{% endif %}
-			{% endfor %}
-		</ul>
-	{% else %}
-		<p>No news</p>
-	{% endif %}
-	<h3>Top News</h3>
+	<div class="header">
+		News
+		<div id="date">{{ date }}</div>
+		<span id="time"></span>
+	</div>
+	<script type="text/javascript" src="{% static 'headlines/time.js' %}"></script>
 	{% if top_list %}
-		<ul>
-			{% for news in top_list %}
-				{% if forloop.counter < 10 %}
-				<li>
-					{{ news.title_text }} : <a href="{{ news.news_url }}">more</a>
-					<div class="news_date">
-						{{ news.pub_date }}
-					</div>
-				</li>
-				{% endif %}
-			{% endfor %}
-		</ul>
+		<h3>Top</h3>
+		<div class="news">
+			<ul>
+				{% for news in top_list %}
+					<li>
+						<a href="{{ news.news_url }}">{{ news.title_text }}</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
 	{% else %}
 		<p>No news</p>
 	{% endif %}
-	<h3>World News</h3>
+
 	{% if world_list %}
-		<ul>
-			{% for news in world_list %}
-				{% if forloop.counter < 10 %}
-				<li>
-					{{ news.title_text }} : <a href="{{ news.news_url }}">more</a>
-					<div class="news_date">
-						{{ news.pub_date }}
-					</div>
-				</li>
-				{% endif %}
-			{% endfor %}
-		</ul>
+		<h3>World</h3>
+		<div class="news">
+			<ul>
+				{% for news in world_list %}
+					<li>
+						<a href="{{ news.news_url }}">{{ news.title_text }}</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
 	{% else %}
 		<p>No news</p>
 	{% endif %}
+
+	{% if technology_list %}
+		<h3>Tech</h3>
+		<div class="news">
+			<ul>
+				{% for news in technology_list %}
+					<li>
+						<a href="{{ news.news_url }}">{{ news.title_text }}</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	{% else %}
+		<p>No news</p>
+	{% endif %}
+
+	{% if india_list %}
+		<h3>India</h3>
+		<div class="news">
+			<ul>
+				{% for news in india_list %}
+					<li>
+						<a href="{{ news.news_url }}">{{ news.title_text }}</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	{% else %}
+		<p>No news</p>
+	{% endif %}
+
+	<br><br>
 </body>
 </html>

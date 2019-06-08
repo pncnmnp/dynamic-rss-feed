@@ -51,13 +51,12 @@ def store(request):
 	return HttpResponse("here news will be fetched")
 
 def fetch(request):
-	tech_list = Title.objects.filter(news_category__startswith='technology')
-	top_list = Title.objects.filter(news_category__startswith='top')
-	world_list = Title.objects.filter(news_category__startswith='world')
-	context = {
-		'tech_list': tech_list,
-		'top_list': top_list,
-		'world_list': world_list
-	}
+	context = dict()
+	category_path = './headlines/datasets/categories.json'
+	categories = load(open(category_path))
+
+	for category in categories['categories']:
+		context[category+'_list'] = Title.objects.filter(news_category__startswith=category)
+	context['date'] = str((datetime.now().strftime("%a %b %d, %Y")))
 
 	return render(request, 'headlines/index.html', context)
