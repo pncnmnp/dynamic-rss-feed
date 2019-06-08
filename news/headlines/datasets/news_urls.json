@@ -3,7 +3,8 @@
 		"https://news.ycombinator.com/rss",
 		"https://news.google.com/news/rss/headlines/section/topic/TECHNOLOGY?ned=in&gl=IN&hl=en-IN",
 		"https://gadgets.ndtv.com/rss/feeds",
-		"http://feeds.bbci.co.uk/news/technology/rss.xml"
+		"http://feeds.bbci.co.uk/news/technology/rss.xml",
+		"http://feeds.reuters.com/reuters/INtechnologyNews"
 	],
 
 	"top": [
@@ -12,7 +13,8 @@
 		"https://feeds.feedburner.com/ndtvnews-top-stories",
 		"https://www.hindustantimes.com/rss/topnews/rssfeed.xml",
 		"https://economictimes.indiatimes.com/news/rssfeeds/1715249553.cms",
-		"http://feeds.bbci.co.uk/news/rss.xml"
+		"http://feeds.bbci.co.uk/news/rss.xml",
+		"http://feeds.reuters.com/reuters/INtopNews"
 	],
 
 	"india": [
@@ -34,12 +36,14 @@
 	"business": [
 		"https://timesofindia.indiatimes.com/rssfeeds/1898055.cms",
 		"https://news.google.com/news/rss/headlines/section/topic/BUSINESS?ned=in&gl=IN&hl=en-IN",
-		"https://economictimes.indiatimes.com/rssfeedsdefault.cms"
+		"https://economictimes.indiatimes.com/rssfeedsdefault.cms",
+		"http://feeds.reuters.com/reuters/INbusinessNews"
 	],
 
 	"sports": [
 		"https://timesofindia.indiatimes.com/rssfeeds/4719148.cms",
-		"https://www.hindustantimes.com/rss/sports/rssfeed.xml"
+		"https://www.hindustantimes.com/rss/sports/rssfeed.xml",
+		"http://feeds.reuters.com/reuters/INsportsNews"
 	],
 
 	"cricket": [

@@ -81,6 +81,36 @@
 		<p>No news</p>
 	{% endif %}
 
+	{% if business_list %}
+		<h3>Business</h3>
+		<div class="news">
+			<ul>
+				{% for news in business_list %}
+					<li>
+						<a href="{{ news.news_url }}">{{ news.title_text }}</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	{% else %}
+		<p>No news</p>
+	{% endif %}
+
+	{% if sports_list %}
+		<h3>Sports</h3>
+		<div class="news">
+			<ul>
+				{% for news in sports_list %}
+					<li>
+						<a href="{{ news.news_url }}">{{ news.title_text }}</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	{% else %}
+		<p>No news</p>
+	{% endif %}
+
 	<br><br>
 </body>
 </html>

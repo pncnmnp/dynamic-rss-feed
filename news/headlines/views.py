@@ -57,7 +57,7 @@ def fetch(request):
 	categories = load(open(category_path))
 
 	for category in categories['categories']:
-		context[category+'_list'] = Title.objects.filter(news_category__startswith=category)
+		context[category+'_list'] = Title.objects.filter(news_category__startswith=category).order_by('-pub_date')
 	context['date'] = str((datetime.now().strftime("%a %b %d, %Y")))
 
 	return render(request, 'headlines/index.html', context)
