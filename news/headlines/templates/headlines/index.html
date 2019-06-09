@@ -8,6 +8,9 @@
 	<title>Headlines</title>
 	{% load static %}
 	<link rel="stylesheet" type="text/css" href="{% static 'headlines/css/common_design.css' %}">
+
+    <!-- I am not sure if the below <style> can be in headlines/css/,
+         Would appreciate any feedback regarding the same. -->
 	<style type="text/css">
 		body {background-image: url("{% static 'headlines/imgs/layout_1.png' %}")}
 	</style>
@@ -16,7 +19,7 @@
 
 <body>
 	<div class="header">
-		News
+		The Orient Chronicles
 		<div id="date">{{ date }}</div>
 		<span id="time"></span>
 	</div>
@@ -101,6 +104,37 @@
 		<div class="news">
 			<ul>
 				{% for news in sports_list %}
+					<li>
+						<a href="{{ news.news_url }}">{{ news.title_text }}</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	{% else %}
+		<p>No news</p>
+	{% endif %}
+
+	{% if science_list %}
+		<h3>Science</h3>
+		<div class="news">
+			<ul>
+				{% for news in science_list %}
+					<li>
+						<a href="{{ news.news_url }}">{{ news.title_text }}</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	{% else %}
+		<p>No news</p>
+	{% endif %}
+
+
+	{% if cricket_list %}
+		<h3>Cricket</h3>
+		<div class="news">
+			<ul>
+				{% for news in cricket_list %}
 					<li>
 						<a href="{{ news.news_url }}">{{ news.title_text }}</a>
 					</li>

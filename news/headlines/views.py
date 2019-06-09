@@ -13,9 +13,12 @@ def store(request):
 	past_day = datetime.now() - timedelta(hours=6)
 	curr_timestamp = datetime.fromtimestamp(path.getmtime('./db.sqlite3'))
 
+	# Checks if it is time to DROP the table.
+	# The backup of news is stored in './datasets/past_news/'
 	if past_day > curr_timestamp:
 		Title.objects.all().delete()
 
+	# Checks if news needs to be updated
 	if past_time > curr_timestamp:
 		news_obj = fetch_news.Fetch_News()
 		news_content = dict()
@@ -64,8 +67,12 @@ def fetch(request):
 	category_path = './headlines/datasets/categories.json'
 	categories = load(open(category_path))
 
+	# 'context' stores news from all categories,
+	# in the DESC. order of their publication date
 	for category in categories['categories']:
 		context[category+'_list'] = Title.objects.filter(news_category__startswith=category).order_by('-pub_date')
+
+	# Today's date
 	context['date'] = str((datetime.now().strftime("%a %b %d, %Y")))
 
 	return render(request, 'headlines/index.html', context)

@@ -50,5 +50,6 @@ body {
 	left: 0;
 	right: 0;
 	margin: auto;
-	padding: 2px;
+	padding: 10px;
+	border-radius: 10px 10px 10px 10px;
 }
