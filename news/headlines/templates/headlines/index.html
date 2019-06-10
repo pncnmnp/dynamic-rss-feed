@@ -20,7 +20,7 @@
 <body>
 	<div class="header">
 		The Orient Chronicles
-		<button class="custom_news_button">Custom News</button>
+		<button class="custom_news_button"><a href="{% url 'get_custom_feed' %}">Custom News</a></button>
 		<div id="date">{{ date }}</div>
 		<span id="time"></span>
 	</div>

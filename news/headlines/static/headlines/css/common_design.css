@@ -20,10 +20,15 @@ body {
 	font-family: monospace;
 }
 
+input {
+	position: relative;
+	left: 37%;
+}
+
 .custom_news_button {
   	cursor:pointer;
 	position: relative;
-	left: 40%;
+	right: -40%;
 	color: #373D3F;
 	border: 2px solid black;
 	background: none;
@@ -33,6 +38,10 @@ body {
 
 .custom_news_button:hover {
 	background: #FFA07A;
+}
+
+.custom_news_button a {
+	color: #373D3F;
 }
 
 .header {

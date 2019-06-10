@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Headlines</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'headlines/css/common_design.css' %}">
+
+    <!-- I am not sure if the below <style> can be in headlines/css/,
+         Would appreciate any feedback regarding the same. -->
+	<style type="text/css">
+		body {background-image: url("{% static 'headlines/imgs/layout_1.png' %}")}
+	</style>
+
+</head>
+
+<body>
+	<div class="header">
+		The Orient Chronicles
+		<div id="date">{{ date }}</div>
+		<span id="time"></span>
+	</div>
+	<script type="text/javascript" src="{% static 'headlines/js/time.js' %}"></script>
+	<br><br>
+
+	<div class="news_title">{{ no_result }}</div>
+	{% if form %}
+		<div class="news_title">Results</div>
+		<div class="news">
+			<ul>
+			{% for news in form %}
+				<li>
+					<a href="{{ news.news_url }}">{{ news.title_text }}</a>
+				</li>
+			{% endfor %}
+			</ul>
+		</div>
+	{% else %}
+		<div class="news">
+			<form action="/headlines/custom/result/" method="post">
+				{% csrf_token %}
+				<input type="text" name="textfield" autofocus>
+				<input value="search" type="submit" class="custom_news_button">
+			</form>
+		</div>
+	{% endif %}
+
+</body>
+</html>

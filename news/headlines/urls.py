@@ -12,6 +12,8 @@ from headlines.rss_feeds.business import BusinessFeed
 urlpatterns = [
 	path('', views.fetch, name='all_news'),
 	path('update/', views.store, name='get_headlines'),
+	path('custom/', views.custom, name='get_custom_feed'),
+	path('custom/result/', views.get_custom_search, name='custom_search'),
 	path('feeds/top/', TopFeed(), name='feed_top'),
 	path('feeds/world/', WorldFeed(), name='feed_world'),
 	path('feeds/tech/', TechFeed(), name='feed_tech'),

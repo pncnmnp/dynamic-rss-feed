@@ -73,6 +73,26 @@ def fetch(request):
 		context[category+'_list'] = Title.objects.filter(news_category__startswith=category).order_by('-pub_date')
 
 	# Today's date
-	context['date'] = str((datetime.now().strftime("%a %b %d, %Y")))
+	context['date'] = str(datetime.now().strftime("%a %b %d, %Y"))
 
 	return render(request, 'headlines/index.html', context)
+
+def custom(request):
+	context = dict()
+	context['date'] = str(datetime.now().strftime("%a %b %d, %Y"))
+	return render(request, 'headlines/custom_feed.html', context)
+
+def get_custom_search(request):
+	if request.method == 'POST':
+		search = request.POST.get('textfield', None)
+		context = dict()
+		context['date'] = str(datetime.now().strftime("%a %b %d, %Y"))
+		try:
+			context['form'] = Title.objects.filter(title_text__icontains=search)
+			if context['form'].exists() == False:
+				context['no_result'] = 'No Results Found'
+			return render(request, 'headlines/custom_feed.html', context)
+		except:
+			render(request, 'headlines/custom_feed.html', context)
+	else:
+		return render(request, 'headlines/custom_feed.html', context={'form': ''})
