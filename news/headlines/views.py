@@ -88,7 +88,7 @@ def get_custom_search(request):
 		context = dict()
 		context['date'] = str(datetime.now().strftime("%a %b %d, %Y"))
 		try:
-			context['form'] = Title.objects.filter(title_text__icontains=search)
+			context['form'] = Title.objects.filter(title_text__icontains=search).order_by('-pub_date')
 			if context['form'].exists() == False:
 				context['no_result'] = 'No Results Found'
 			return render(request, 'headlines/custom_feed.html', context)

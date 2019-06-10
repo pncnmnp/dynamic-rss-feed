@@ -28,7 +28,10 @@
 
 	<div class="news_title">{{ no_result }}</div>
 	{% if form %}
-		<div class="news_title">Results</div>
+		<div class="news_title">
+			Results
+			<a href="{% url 'get_custom_feed' %}"><img src="{% static 'headlines/imgs/back_alt_r.svg' %}"></a>
+		</div>	
 		<div class="news">
 			<ul>
 			{% for news in form %}
@@ -42,8 +45,9 @@
 		<div class="news">
 			<form action="/headlines/custom/result/" method="post">
 				{% csrf_token %}
-				<input type="text" name="textfield" autofocus>
+				<input autocomplete="off" type="text" name="textfield" autofocus>
 				<input value="search" type="submit" class="custom_news_button">
+				<a href="{% url 'all_news' %}" class="back_link"><img src="{% static 'headlines/imgs/back_alt_r.svg' %}"></a>
 			</form>
 		</div>
 	{% endif %}
