@@ -74,7 +74,7 @@ class Fetch_News:
 							path.getmtime(self.directory + self.file)
 						).hour
 			if curr_hour - past_hour > time_diff:
-				print("HERE")
+				print("SCRAPING NEW FEED...")
 				self.scrape()
 				return True
 			return False
