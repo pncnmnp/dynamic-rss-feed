@@ -1,3 +1,7 @@
+/** {
+	border: 2px dotted black;
+}
+*/
 img {
 	padding-top: 5px;
 	float: right;
@@ -14,6 +18,21 @@ a:hover {
 
 body {
 	font-family: monospace;
+}
+
+.custom_news_button {
+  	cursor:pointer;
+	position: relative;
+	left: 40%;
+	color: #373D3F;
+	border: 2px solid black;
+	background: none;
+	box-shadow: none;
+	border-radius: 8px;
+}
+
+.custom_news_button:hover {
+	background: #FFA07A;
 }
 
 .header {
