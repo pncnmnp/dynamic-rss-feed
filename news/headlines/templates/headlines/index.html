@@ -25,7 +25,9 @@
 	</div>
 	<script type="text/javascript" src="{% static 'headlines/js/time.js' %}"></script>
 	{% if top_list %}
-		<h3>Top</h3>
+		<div class="news_title">Top
+			<a href="{% url 'feed_top' %}"><img src="{% static 'headlines/imgs/rss_r.svg' %}"></a>
+		</div>
 		<div class="news">
 			<ul>
 				{% for news in top_list %}
@@ -40,7 +42,9 @@
 	{% endif %}
 
 	{% if world_list %}
-		<h3>World</h3>
+		<div class="news_title">World
+			<a href="{% url 'feed_world' %}"><img src="{% static 'headlines/imgs/rss_r.svg' %}"></a>
+		</div>
 		<div class="news">
 			<ul>
 				{% for news in world_list %}
@@ -55,7 +59,9 @@
 	{% endif %}
 
 	{% if technology_list %}
-		<h3>Tech</h3>
+		<div class="news_title">Tech
+			<a href="{% url 'feed_tech' %}"><img src="{% static 'headlines/imgs/rss_r.svg' %}"></a>
+		</div>
 		<div class="news">
 			<ul>
 				{% for news in technology_list %}
@@ -70,7 +76,9 @@
 	{% endif %}
 
 	{% if india_list %}
-		<h3>India</h3>
+		<div class="news_title">India
+			<a href="{% url 'feed_india' %}"><img src="{% static 'headlines/imgs/rss_r.svg' %}"></a>
+		</div>
 		<div class="news">
 			<ul>
 				{% for news in india_list %}
@@ -85,7 +93,9 @@
 	{% endif %}
 
 	{% if business_list %}
-		<h3>Business</h3>
+		<div class="news_title">Business
+			<a href="{% url 'feed_business' %}"><img src="{% static 'headlines/imgs/rss_r.svg' %}"></a>
+		</div>
 		<div class="news">
 			<ul>
 				{% for news in business_list %}
@@ -100,7 +110,9 @@
 	{% endif %}
 
 	{% if sports_list %}
-		<h3>Sports</h3>
+		<div class="news_title">Sports
+			<a href="{% url 'feed_sports' %}"><img src="{% static 'headlines/imgs/rss_r.svg' %}"></a>
+		</div>
 		<div class="news">
 			<ul>
 				{% for news in sports_list %}
@@ -115,7 +127,9 @@
 	{% endif %}
 
 	{% if science_list %}
-		<h3>Science</h3>
+		<div class="news_title">Science
+			<a href="{% url 'feed_science' %}"><img src="{% static 'headlines/imgs/rss_r.svg' %}"></a>
+		</div>
 		<div class="news">
 			<ul>
 				{% for news in science_list %}
@@ -131,7 +145,9 @@
 
 
 	{% if cricket_list %}
-		<h3>Cricket</h3>
+		<div class="news_title">Cricket
+			<a href="{% url 'feed_cricket' %}"><img src="{% static 'headlines/imgs/rss_r.svg' %}"></a>
+		</div>
 		<div class="news">
 			<ul>
 				{% for news in cricket_list %}
