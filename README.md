@@ -2,6 +2,9 @@
 <p align="center">
 <img src="https://github.com/pncnmnp/dynamic-rss-feed/blob/master/screenshots/news_1.png">
 </p>
+<p>
+<img alt="Django version" src="https://img.shields.io/badge/django-2.2-red.svg">  <img alt="License" src="https://img.shields.io/badge/license-MIT-blue.svg">
+</p>
 
 ### Description
 The Orient Chronicles is a news aggregator written in Django. It fetches news from various RSS feeds, prioritizes them according to the category's trend and displays the filtered news. <br/>
